@@ -1,6 +1,7 @@
 import ICard from "./../interfaces/ICard";
 
 export default class Deck {
+	private _maxCardsInDeck: number = 52;
 	private _cards:ICard[];
 	private readonly _cardRanks:string[] = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 	private readonly _cardSuits:string[] = ["♡", "♤", "♧", "♢"];
@@ -14,6 +15,13 @@ export default class Deck {
 				});
 			});
 		});
+
+		this._maxCardsInDeck = this._cards.length;
+		this._consoleCardCount();
+	}
+
+	private _consoleCardCount(){
+		console.log((this._cards.length) + " cards counted in deck.")
 	}
 
 	constructor() {
@@ -31,7 +39,16 @@ export default class Deck {
 		return card;
 	}
 
+	public getCardCount(){
+		return this._cards.length;
+	}
+
+	public getMaxCardCount(){
+		return this._maxCardsInDeck;
+	}
+
 	public returnCardToDeck(card:ICard):void {
 		this._cards.push(card);
+		this._consoleCardCount();
 	}
 }

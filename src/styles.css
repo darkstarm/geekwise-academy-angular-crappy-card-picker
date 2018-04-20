@@ -17,3 +17,12 @@
 .clear {
 	clear: left;
 }
+
+.life-bar {
+	width: 5px;
+	background-color: green;
+}
+
+.boxHeight{
+	height: 128px;
+}
